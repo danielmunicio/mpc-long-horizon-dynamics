@@ -40,8 +40,25 @@ class DynamicsLearning(pytorch_lightning.LightningModule):
 
         self.validation_step_outputs = []
 
-    def forward(self, x, init_memory):
+    def forward(self, x, init_memory=True):
+        print(f"[DEBUG] Input shape: {x.shape}, dim: {x.dim()}, dtype: {x.dtype}")
 
+        # Handle flattened input for l4casadi compatibility
+        if x.dim() == 1:
+            # Shape: (history*features,) -> (1, history, features)
+            x = x.reshape(1, self.args.history_length, self.input_size)
+            print(f"[DEBUG] Reshaped 1D to: {x.shape}")
+        elif x.dim() == 2:
+            if x.shape[1] == 1 and x.shape[0] == self.input_size * self.args.history_length:
+                # Shape: (history*features, 1) -> (1, history, features) - l4casadi column vector
+                x = x.reshape(1, self.args.history_length, self.input_size)
+                print(f"[DEBUG] Reshaped column vector to: {x.shape}")
+            elif x.shape[1] == self.input_size * self.args.history_length:
+                # Shape: (batch, history*features) -> (batch, history, features)
+                x = x.reshape(x.shape[0], self.args.history_length, self.input_size)
+                print(f"[DEBUG] Reshaped 2D to: {x.shape}")
+
+        print(f"[DEBUG] Shape before model call: {x.shape}")
         y_hat = self.model(x, init_memory) 
 
         if self.args.delta == True:

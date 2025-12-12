@@ -1,8 +1,68 @@
-# requires python version 3.8
-numpy
-matplotlib
-pandas
-scipy
-scikit-learn
-h5py
-tqdm
+# # requires python version 3.8
+# numpy
+# matplotlib
+# pandas
+# scipy
+# scikit-learn
+# h5py
+# tqdm
+
+# ===== CPU-Compatible Core Packages =====
+numpy==2.2.6
+scipy==1.15.3
+pandas==2.3.3
+matplotlib==3.10.7
+sympy==1.14.0
+networkx==3.3
+jinja2==3.1.6
+scikit-learn==1.7.2
+python-dateutil==2.9.0.post0
+typing_extensions==4.15.0
+pyyaml==6.0.3
+tqdm==4.67.1
+packaging==25.0
+filelock==3.19.1
+fsspec==2025.9.0
+
+# ===== CasADi + l4casadi (MATCHING your partner) =====
+casadi==3.7.2
+l4casadi==2.0.0
+
+# ===== PyTorch (CPU version matching partner’s major version) =====
+# Your partner uses 2.9.1+cu130 → you must use 2.9.1 CPU
+torch==2.9.1
+torchvision==0.24.1
+torchaudio==2.9.1
+
+# NOTE: these install CPU-only wheels on macOS ARM automatically
+
+# ===== Lightning (safe CPU build) =====
+pytorch-lightning==2.6.0
+lightning-utilities==0.15.2
+torchmetrics==1.8.2
+
+# ===== Allowed dependencies =====
+aiohttp==3.13.2
+aiohappyeyeballs==2.6.1
+aiosignal==1.4.0
+async-timeout==5.0.1
+attrs==25.4.0
+contourpy==1.3.2
+cycler==0.12.1
+fonttools==4.61.0
+frozenlist==1.8.0
+h5py==3.15.1
+idna==3.11
+joblib==1.5.2
+kiwisolver==1.4.9
+MarkupSafe==2.1.5
+mpmath==1.3.0
+multidict==6.7.0
+pillow==12.0.0
+propcache==0.4.1
+pyparsing==3.2.5
+six==1.17.0
+threadpoolctl==3.6.0
+tomli==2.3.0
+tzdata==2025.2
+yarl==1.22.0

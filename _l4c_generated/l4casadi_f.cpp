@@ -1,6 +1,6 @@
 #include <l4casadi.hpp>
 
-L4CasADi l4casadi("/home/batman/UCB/ME231a/long-horizon-dynamics/_l4c_generated", "l4casadi_f", 280, 1, 1, 6, "cpu", true, true, true, false, true, false);
+L4CasADi l4casadi("/workspace/_l4c_generated", "l4casadi_f", 140, 1, 1, 4, "cpu", true, true, true, false, true, false);
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,8 +33,8 @@ extern "C" {
 
 // Function l4casadi_f
 
-static const casadi_int l4casadi_f_s_in0[3] = { 280, 1, 1};
-static const casadi_int l4casadi_f_s_out0[3] = { 1, 6, 1};
+static const casadi_int l4casadi_f_s_in0[3] = { 140, 1, 1};
+static const casadi_int l4casadi_f_s_out0[3] = { 1, 4, 1};
 
 // Only single input, single output is supported at the moment
 CASADI_SYMBOL_EXPORT casadi_int l4casadi_f_n_in(void) { return 1;}
